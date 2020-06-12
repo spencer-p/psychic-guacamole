@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "heart.h"
+#include "heart_data.h"
 
 int main() {
 
@@ -11,6 +12,10 @@ int main() {
 	};
 
 	print_heart(&state);
+
+	putchar('\n');
+
+	gimg_print_on(&heart_data);
 
 	return 0;
 }
