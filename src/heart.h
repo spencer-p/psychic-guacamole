@@ -2,10 +2,11 @@
 #include <inttypes.h>
 #include <stdbool.h>
 
+#include "heart_data.h"
+
 struct heart_state {
-	uint32_t size;
-	uint16_t stripe_start;
-	bool diagonal;
+	uint32_t stripe_start;
+	const struct gimp_image *img;
 };
 
 void print_heart(struct heart_state *state);
