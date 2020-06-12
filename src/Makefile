@@ -4,3 +4,6 @@ run: main
 	./main
 
 main: main.c heart.o heart_data.o
+
+clean:
+	rm -f main *.o
