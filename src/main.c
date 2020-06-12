@@ -26,6 +26,7 @@ int main() {
 		usleep(DELAY);
 		clear();
 		print_heart(&state);
+		printf("\n\t\tC O N G R A D U L A T I O N S\n");
 	}
 
 	putchar('\n');
