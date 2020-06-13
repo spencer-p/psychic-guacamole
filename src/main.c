@@ -4,11 +4,10 @@
 #include "heart.h"
 #include "heart_data.h"
 
-#define USECONDS 1e6
-#define DELAY (USECONDS/10)
-#define TIMES (5*USECONDS/DELAY)
-
-// total_frames = 5 seconds * frame/second
+#define USECONDS        1e6
+#define DELAY           (USECONDS/10)
+#define ANIMATE_SECONDS 30
+#define ANIMATE_FRAMES  (ANIMATE_SECONDS*USECONDS/DELAY)
 
 // reset terminal
 void clear() {
@@ -22,7 +21,7 @@ int main() {
 		.img = &heart_data,
 	};
 
-	for (; state.stripe_start < TIMES; state.stripe_start++) {
+	for (;state.stripe_start < ANIMATE_FRAMES; state.stripe_start++) {
 		usleep(DELAY);
 		clear();
 		print_heart(&state);
