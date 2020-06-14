@@ -25,7 +25,7 @@ static const char *get_color(struct heart_state *state, uint32_t i, uint32_t j) 
 	ssize_t y = j;
 	ssize_t offset = -state->stripe_start;
 
-	return COLORS[((x+y+offset)/2) % COLORS_LEN];
+	return COLORS[((x+y+offset)/4) % COLORS_LEN];
 }
 
 void print_heart(struct heart_state *state) {
