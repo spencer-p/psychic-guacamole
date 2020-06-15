@@ -9,9 +9,14 @@
 #define ANIMATE_SECONDS 30
 #define ANIMATE_FRAMES  (ANIMATE_SECONDS*USECONDS/DELAY)
 
-// reset terminal
+// clear the screen
 void clear() {
-	fputs("\x1b\x63\x1b\x5b\x3f\x31\x30\x30\x30\x6c\x1b\x5b\x3f\x32\x35\x68", stdout);
+	fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+}
+
+// reset the color
+void reset() {
+	fputs("\033[0m", stdout);
 }
 
 int main() {
@@ -22,10 +27,14 @@ int main() {
 	};
 
 	for (;state.stripe_start < ANIMATE_FRAMES; state.stripe_start++) {
+		// Sleep to let the user see this frame, then clear it and draw again
 		usleep(DELAY);
 		clear();
 		print_heart(&state);
 		printf("\n\t\tC O N G R A D U L A T I O N S !!!\n");
+
+		// Reset the color to be sensitive to Ctrl-C
+		reset();
 	}
 
 	putchar('\n');
