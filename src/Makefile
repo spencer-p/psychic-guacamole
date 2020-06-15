@@ -1,9 +1,9 @@
-all: main
+all: heart
 
-run: main
-	./main
+run: heart
+	./heart
 
-main: main.c heart.o heart_data.o
+heart: main.c heart.o heart_data.o
 
 clean:
-	rm -f main *.o
+	rm -f heart *.o
