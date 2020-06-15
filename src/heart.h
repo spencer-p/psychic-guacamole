@@ -6,6 +6,7 @@
 
 struct heart_state {
 	uint32_t stripe_start;
+	uint32_t stripe_width;
 	const struct gimp_image *img;
 };
 
