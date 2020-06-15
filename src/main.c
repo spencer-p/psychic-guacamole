@@ -34,16 +34,17 @@ int main(int argc, char *argv[]) {
 
 	char msg[MSG_BUFSIZE] = "\n\t\tC O N G R A D U L A T I O N S !!!\n";
 	uint32_t total_frames = ANIMATE_FRAMES(DEF_ANIMATE_SECONDS);
-	int opt, total_seconds;
+	int opt, total_seconds, width;
 	while ((opt = getopt(argc, argv, "hw:t:m:")) != -1) {
 		switch (opt) {
 			case 'w':
-				state.stripe_width = atoi(optarg);
-				if (state.stripe_width <= 0) {
-					fprintf(stderr, "Invalid stripe width %d, expected positive integer\n",
-							state.stripe_width);
+				width = atoi(optarg);
+				if (width <= 1) {
+					fprintf(stderr, "Invalid stripe width %d, expected integer > 1\n",
+							width);
 					exit(EXIT_FAILURE);
 				}
+				state.stripe_width = width;
 				break;
 			case 't':
 				total_seconds = atoi(optarg);
