@@ -1,4 +1,4 @@
-/* GIMP RGBA C-Source image dump (heart.c) */
+/* GIMP RGBA C-Source image dump (heart_data.c) */
 #pragma once
 #include <inttypes.h>
 #include <stdbool.h>
