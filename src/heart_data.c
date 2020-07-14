@@ -5,6 +5,7 @@
 
 bool gimg_on(const struct gimp_image *img, uint32_t x, uint32_t y) {
 	// index into the 2d array. width*x + y
+	// TODO(spencer-p) out of bounds check
 	size_t idx = (img->width * x + y) * img->bytes_per_pixel;
 
 	if (img->bytes_per_pixel != 4) {
@@ -14,9 +15,9 @@ bool gimg_on(const struct gimp_image *img, uint32_t x, uint32_t y) {
 				return false;
 			}
 		}
+
 		// All elements of the pixel were off (implies black).
 		return true;
-
 	}
 
 	// If there are four bytes per pixel, we will only check the alpha
